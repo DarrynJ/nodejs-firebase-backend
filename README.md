@@ -7,17 +7,17 @@ I wanted to find out how a NodeJS server could be hosted on firebase for next-to
 Once you've cloned the repository, you want to run:
 
 ```bash
-    npm install
+npm install
 ```
 
 After you've installed all dependencies, you want to update the *.firebaserc* file and add your project under: 
 
 ```JSON
-    {
-        "projects": {
-            "default": "your-project-here"
-        }
+{
+    "projects": {
+        "default": "your-project-here"
     }
+}
 ```
 
 > This should point to a project you've created in the Firebase console.
@@ -25,9 +25,9 @@ After you've installed all dependencies, you want to update the *.firebaserc* fi
 After you've completed the configuration, you want to ensure that you are pointing to the correct resources for your database reference. Make sure to change the following in the `functions/src/index.ts` file:
 
 ```TS
-    // Add your database reference here.
-    // Make sure that it is situated within the project you specified in the previous step.
-    const databaseReference = firebaseApp.database().ref("your-reference-here"); 
+// Add your database reference here.
+// Make sure that it is situated within the project you specified in the previous step.
+const databaseReference = firebaseApp.database().ref("your-reference-here"); 
 ```
 
 ## Running the project
@@ -37,7 +37,7 @@ Once you've got all the setup sorted, you want to run the project locally to ens
 To run the project, from the command line, execute the following:
 
 ```bash
-    firebase serve
+firebase serve
 ```
 
 You should be met with the following:
@@ -59,7 +59,7 @@ You can then navigate to **http://localhost:5000/get-my-random-data** and you sh
 To deploy the project, all you need to do is run the script:
 
 ```bash
-    firebase deploy --only functions, hosting
+firebase deploy --only functions, hosting
 ```
 
 > Should you run into any issues, run `firebase deploy` without any additional params to see if that works.
